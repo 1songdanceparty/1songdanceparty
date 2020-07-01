@@ -7,6 +7,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
-    - name: Trigger Netlify Hook
-      run: curl -X POST ${{ secrets.NETLIFY_HOOK_BUILD_URL }}
+    - uses: actions/checkout@v2
+    - run: export NETLIFY_HOOK_BUILD_URL=${{ secrets.NETLIFY_HOOK_BUILD_URL }}
+    - run: sh ./scripts/nightly-job.sh
