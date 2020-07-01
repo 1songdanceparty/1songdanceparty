@@ -1,0 +1,22 @@
+{
+  "name": "onesong",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kareniel/onesong.git"
+  },
+  "keywords": [
+    "onesongdanceparty"
+  ],
+  "author": "kareniel <jonathan@diagonal.sh>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/kareniel/onesong/issues"
+  },
+  "homepage": "https://github.com/kareniel/onesong#readme"
+}
