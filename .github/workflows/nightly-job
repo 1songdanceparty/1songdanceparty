@@ -2,17 +2,20 @@ name: Nightly job
 
 on:
   schedule:
-  - cron: "0 4 * * *"
+    - cron: "0 4 * * *"
+  push:
+    branches: [ master ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - run: export NETLIFY_HOOK_BUILD_URL=${{ secrets.NETLIFY_HOOK_BUILD_URL }}
-    - run: sh ./scripts/nightly-job.sh
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.0
+      with:
+        node-version: 12.x
+        check-latest: true
+    - run: npm install && node src/job.js
