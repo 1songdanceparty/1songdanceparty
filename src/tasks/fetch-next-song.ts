@@ -6,6 +6,7 @@ const sheets = google.sheets('v4');
 const { OAuth2 } = google.auth
 
 export default async function fetchNextSong(): Promise<Song> {
+  await new Promise(resolve => setTimeout(resolve, 750))
   const credentials = {}
   const authClient = await authorize(credentials);
   const request = {

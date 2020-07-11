@@ -10,6 +10,9 @@ function date() {
   const year = d.getFullYear()
   const month = String(d.getMonth()).padStart(2, '0')
   const day = d.getDate()
+  const hour = d.getHours()
+  const min = d.getMinutes()
+  const sec = d.getSeconds()
 
-  return `${year}-${month}-${day}`
+  return `${year}-${month}-${day}T${hour}:${min}:${sec}`
 }
