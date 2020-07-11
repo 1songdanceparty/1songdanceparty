@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/kareniel/onesong/issues"
   },
-  "homepage": "https://github.com/kareniel/onesong#readme"
+  "homepage": "https://github.com/kareniel/onesong#readme",
+  "dependencies": {
+    "googleapis": "^52.1.0"
+  }
 }
