@@ -14,7 +14,7 @@ export default async function fetchNextSong(): Promise<Song> {
   try {
     const request = {
       spreadsheetId: process.env.SPREADSHEET_ID || '', 
-      includeGridData: false
+      includeGridData: true
     };
     const spreadsheet = await sheets.spreadsheets.get(request)
       .then(res => res.data);
