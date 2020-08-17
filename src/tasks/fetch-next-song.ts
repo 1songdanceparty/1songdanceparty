@@ -1,23 +1,25 @@
 import { google } from 'googleapis';
+import logger from '../logger';
 import Song from '../Song';
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
-const sheets = google.sheets('v4');
-const { OAuth2 } = google.auth
+const sheets = google.sheets({
+  version: 'v4',
+  auth: process.env.GOOGLE_API_KEY
+});
 
 export default async function fetchNextSong(): Promise<Song> {
-  await new Promise(resolve => setTimeout(resolve, 750))
-  const credentials = {}
-  const authClient = await authorize(credentials);
-  const request = {
-    spreadsheetId: 'aaaaaa', 
-    ranges: ['A2:D'],
-    includeGridData: false,
-    auth: authClient,
-  };
 
   try {
-    // const spreadsheet = (await sheets.spreadsheets.get(request)).data;
+    const request = {
+      spreadsheetId: process.env.SPREADSHEET_ID || '', 
+      ranges: ['A2:D'],
+      includeGridData: false
+    };
+    const spreadsheet = await sheets.spreadsheets.get(request)
+      .then(res => res.data);
+
+    logger.log(JSON.stringify(spreadsheet))
 
     return {
       title: {},
@@ -26,8 +28,4 @@ export default async function fetchNextSong(): Promise<Song> {
   } catch (err) {
     console.error(err);
   }
-}
-
-async function authorize(credentials) {
-  return {};
 }
