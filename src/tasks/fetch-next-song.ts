@@ -21,8 +21,6 @@ export default async function fetchNextSong(): Promise<Song> {
           .find(s => s.properties.sheetId === 0)
       );
 
-    logger.log(JSON.stringify(spreadsheet))
-
     return {
       title: {},
       url: ''
