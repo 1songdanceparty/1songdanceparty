@@ -9,11 +9,11 @@ const sheets = google.sheets({
 });
 
 export default async function fetchNextSong(): Promise<Song> {
+  console.log(process.env.SPREADSHEET_ID)
 
   try {
     const request = {
       spreadsheetId: process.env.SPREADSHEET_ID || '', 
-      ranges: ['A2:D'],
       includeGridData: false
     };
     const spreadsheet = await sheets.spreadsheets.get(request)
