@@ -19,5 +19,6 @@ jobs:
         check-latest: true
     - run: npm install && npm start
       env:
-        SPREADSHEET_ID: 17TIodbKabfAnDeyvjkUNfUq6mGdgNz-lHSzyebIWlas
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        SPREADSHEET_ID: 17TIodbKabfAnDeyvjkUNfUq6mGdgNz-lHSzyebIWlas
+        PLAYLIST_ID: PLSdVLeteesArC_N-BkoH50a8qbWkVW5Mb

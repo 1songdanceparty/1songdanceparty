@@ -9,15 +9,17 @@ const sheets = google.sheets({
 });
 
 export default async function fetchNextSong(): Promise<Song> {
-  console.log(process.env.SPREADSHEET_ID)
-
   try {
     const request = {
-      spreadsheetId: process.env.SPREADSHEET_ID || '', 
+      spreadsheetId: process.env.SPREADSHEET_ID, 
       includeGridData: true
     };
+
     const spreadsheet = await sheets.spreadsheets.get(request)
-      .then(res => res.data);
+      .then(res => res.data
+        .sheets
+          .find(s => s.properties.sheetId === 0)
+      );
 
     logger.log(JSON.stringify(spreadsheet))
 
