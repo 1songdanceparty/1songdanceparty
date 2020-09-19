@@ -18,9 +18,13 @@ export default async function fetchNextSong(): Promise<Song> {
     const spreadsheet = await sheets.spreadsheets.get(request)
       .then(res => res.data.sheets[0]);
 
-    const firstRow = spreadsheet.data[0].rowData[0]
+    const todaysRow = spreadsheet.data[0].rowData.find(row => {
+      return row.values[4].effectiveValue.stringValue === '9/18/20'
+    })
 
-    logger.log(firstRow.values[0].effectiveValue.stringValue)
+    const url = todaysRow.values[0].effectiveValue.stringValue
+
+    logger.log(url)
 
     return {
       title: {},
