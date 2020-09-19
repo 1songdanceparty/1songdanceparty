@@ -12,7 +12,8 @@ export default async function (song) {
   try { 
     // list playlist items
       const items = await youtube.playlistItems.list({
-        playlistId: process.env.PLAYLIST_ID
+        playlistId: process.env.PLAYLIST_ID,
+        part: []
       })
       logger.log(JSON.stringify(items))
       // delete all playlist items
