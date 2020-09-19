@@ -20,7 +20,7 @@ export default async function fetchNextSong(): Promise<Song> {
 
     const firstRow = spreadsheet.data[0].rowData[0]
 
-    logger.log(firstRow)
+    logger.log(firstRow.values[0].effectiveValue.stringValue)
 
     return {
       title: {},
