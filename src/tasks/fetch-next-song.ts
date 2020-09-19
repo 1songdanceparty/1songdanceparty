@@ -22,9 +22,9 @@ export default async function fetchNextSong(): Promise<Song> {
       return row.values[4].effectiveValue.stringValue === '9/18/20'
     })
 
-    const url = todaysRow.values[0].effectiveValue.stringValue
+    // const url = todaysRow.values[0].effectiveValue.stringValue
 
-    logger.log(url)
+    logger.log(spreadsheet.data[0].rowData[1].values[4].effectiveValue.stringValue)
 
     return {
       title: {},
