@@ -18,10 +18,9 @@ export default async function fetchNextSong(): Promise<Song> {
     const spreadsheet = await sheets.spreadsheets.get(request)
       .then(res => res.data.sheets[0]);
 
-    const date = spreadsheet.data[0].rowData
-      .find(row => row.values[4] === '9/18/20')[0]
+    const firstRow = spreadsheet.data[0].rowData[0]
 
-    logger.log(date)
+    logger.log(firstRow)
 
     return {
       title: {},
