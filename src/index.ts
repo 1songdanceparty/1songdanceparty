@@ -1,23 +1,12 @@
-import logger from './logger'
-import fetchNextSong from './tasks/fetch-next-song'
-import updatePlaylist from './tasks/update-playlist'
-import postOnFacebook from './tasks/post-on-facebook'
+import logger from './utils/logger';
+import * as twitter from './service/twitter';
 
-logger.log('starting job...')
+main();
 
-main()
-
-async function main () {
-  logger.log('fetching next song...')
-  const song = await fetchNextSong()
-
-  logger.log('got song:')
-  logger.log(JSON.stringify(song))
-
-  logger.log('updating playlist...')
-  await updatePlaylist(song)
-  logger.log('updating facebook...')
-  await postOnFacebook(song)
-
-  logger.log('all done! ~:D')
+async function main() {
+  try {
+    await twitter.tweet('hello world!');
+  } catch (err) {
+    console.error(err);
+  }
 }

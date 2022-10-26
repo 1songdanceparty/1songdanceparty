@@ -1,32 +1,39 @@
 {
-  "name": "onesong",
-  "version": "0.1.1",
+  "name": "@1songdanceparty/1songdanceparty",
+  "version": "0.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "start": "./node_modules/.bin/ts-node src",
-    "test": "node test"
+    "test": "node test",
+    "lint": "eslint . --ext .ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kareniel/onesong.git"
+    "url": "git+https://github.com/1songdanceparty/1songdanceparty.git"
   },
   "keywords": [
-    "onesongdanceparty"
+    "1songdanceparty"
   ],
-  "author": "kareniel <jonathan@diagonal.sh>",
+  "author": "kareniel <hello@jonathandupre.com>",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/kareniel/onesong/issues"
+    "url": "https://github.com/1songdanceparty/1songdanceparty/issues"
   },
-  "homepage": "https://github.com/kareniel/onesong#readme",
+  "homepage": "https://github.com/1songdanceparty/1songdanceparty#readme",
   "dependencies": {
-    "@types/node": "^14.0.22",
     "googleapis": "^52.1.0",
     "ts-node": "^8.10.2",
+    "twitter-api-sdk": "^1.2.1",
     "typescript": "^3.9.6"
   },
   "devDependencies": {
-    "eslint": "^7.4.0"
+    "@types/node": "^18.11.5",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "express": "^4.18.2"
   }
 }
