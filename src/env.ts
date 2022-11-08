@@ -1,4 +1,5 @@
 export default {
+  GH_TOKEN: '',
   GOOGLE_API_KEY: '',
   TWITTER_CLIENT_ID: '',
   TWITTER_CLIENT_SECRET: '',

@@ -1,0 +1,25 @@
+name: Hourly job
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  push:
+    branches: [ master ]
+
+jobs:
+  run-tasks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.0
+      with:
+        node-version: 12.x
+        check-latest: true
+    - run: npm install && npm start
+      env:
+        TWITTER_ACCESS_KEY: ${{ secrets.TWITTER_ACCESS_KEY }}
+        TWITTER_REFRESH_KEY: ${{ secrets.TWITTER_REFRESH_KEY }}
+        TWITTER_CLIENT_ID: ${{ secrets.TWITTER_CLIENT_ID }}
+        TWITTER_CLIENT_SECRET: ${{ secrets.TWITTER_CLIENT_SECRET }}

@@ -5,6 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "./node_modules/.bin/ts-node src",
+    "server": "ts-node src/utils/twitter-auth-server.ts",
+    "tweet": "ts-node src/utils/tweet.ts",
     "test": "node test",
     "lint": "eslint . --ext .ts"
   },
@@ -22,7 +24,10 @@
   },
   "homepage": "https://github.com/1songdanceparty/1songdanceparty#readme",
   "dependencies": {
+    "@types/libsodium-wrappers": "^0.7.10",
     "googleapis": "^52.1.0",
+    "libsodium-wrappers": "^0.7.10",
+    "octokit": "^2.0.10",
     "ts-node": "^8.10.2",
     "twitter-api-sdk": "^1.2.1",
     "typescript": "^3.9.6"
