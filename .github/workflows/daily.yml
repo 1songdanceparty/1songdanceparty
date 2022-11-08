@@ -1,4 +1,4 @@
-name: Nightly job
+name: Daily job
 
 on:
   schedule:
