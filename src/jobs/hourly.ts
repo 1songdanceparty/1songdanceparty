@@ -1,10 +1,15 @@
-import { refreshSession } from '../service/twitter';
+import * as twitter from '../service/twitter';
 import logger from '../utils/logger';
 
-export default async function hourly() {
-  logger.log('starting job...');
+(async function hourly() {
+  logger.log('Starting hourly job...');
 
-  await refreshSession();
+  try {
+    await twitter.refreshSession();
 
-  logger.log('all done! ~:D');
-}
+    logger.log('All done! ~:D');
+  } catch (err) {
+    logger.log('Oops, something went wrong.');
+    console.error(err);
+  }
+}());

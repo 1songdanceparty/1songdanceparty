@@ -1,5 +1,6 @@
 import { auth, Client } from 'twitter-api-sdk';
 import env from '../env';
+import logger from '../utils/logger';
 import { updateSecret } from './github';
 
 const client = new Client(env.TWITTER_ACCESS_TOKEN);
@@ -15,16 +16,21 @@ export async function refreshSession() {
   authClient.token = {
     token_type: 'bearer',
     scope: 'tweet.write users.read tweet.read offline.access',
-    expires_at: 0,
     access_token: env.TWITTER_ACCESS_TOKEN,
     refresh_token: env.TWITTER_REFRESH_TOKEN,
   };
+
+  logger.log('Refreshing Twitter access token...');
 
   const { token } = await authClient.refreshAccessToken();
 
   if (!token.refresh_token || !token.access_token) {
     throw new Error('Missing access and/or refresh token in the response from Twitter.');
   }
+
+  console.log(token);
+
+  logger.log('Got an access and a refresh token! Saving them...');
 
   await updateSecret('TWITTER_REFRESH_TOKEN', token.refresh_token);
 

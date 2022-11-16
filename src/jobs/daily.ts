@@ -2,7 +2,7 @@ import fetchNextSong from '../tasks/fetch-next-song';
 import postOnTwitter from '../tasks/post-on-twitter';
 import logger from '../utils/logger';
 
-export default async function daily() {
+(async function daily() {
   logger.log('Starting job...');
 
   try {
@@ -16,4 +16,4 @@ export default async function daily() {
     logger.log((err as Error).message);
     logger.log((err as Error).stack || '');
   }
-}
+}());
