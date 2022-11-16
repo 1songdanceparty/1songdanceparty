@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "./node_modules/.bin/ts-node jobs/daily",
-    "refresh-twitter-token": "./node_modules/.bin/ts-node jobs/hourly",
+    "start": "ts-node src/jobs/daily",
+    "refresh-twitter-token": "ts-node src/jobs/hourly",
     "server": "ts-node src/utils/twitter-auth-server.ts",
     "tweet": "ts-node src/utils/tweet.ts",
     "test": "node test",
