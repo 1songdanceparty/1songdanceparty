@@ -1,22 +1,35 @@
 /* eslint-disable camelcase */
-import { google, sheets_v4 } from 'googleapis';
+import { google } from 'googleapis';
 import env from '../env';
 
-// const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 const sheets = google.sheets({
   version: 'v4',
   auth: env.GOOGLE_API_KEY,
 });
 
-export async function fetchSheet(): Promise<sheets_v4.Schema$Sheet | undefined> {
+export async function fetchRowData(spreadsheetId: string) {
   const request = {
-    spreadsheetId: process.env.SPREADSHEET_ID,
+    spreadsheetId,
     includeGridData: true,
   };
 
   const { data } = await sheets.spreadsheets.get(request);
 
-  const spreadsheet = (data.sheets || [])[0];
+  if (!data.sheets) {
+    throw new Error('There is something wrong with the spreadsheet that was fetched.');
+  }
 
-  return spreadsheet;
+  const spreadsheet = data.sheets[0];
+
+  if (!spreadsheet.data) {
+    throw new Error('The first sheet is empty.');
+  }
+
+  const sheet = spreadsheet.data[0];
+
+  if (!sheet.rowData) {
+    throw new Error('The sheet does not have row data.');
+  }
+
+  return sheet.rowData;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-console */
 import { Client, auth } from 'twitter-api-sdk';
 import express from 'express';
@@ -12,7 +13,7 @@ const authClient = new auth.OAuth2User({
   scopes: ['tweet.read', 'tweet.write', 'users.read', 'offline.access'],
 });
 
-const client = new Client(authClient);
+export const client = new Client(authClient);
 
 // eslint-disable-next-line consistent-return
 app.get('/callback', async (req, res) => {
@@ -40,5 +41,5 @@ app.listen(3000, () => {
 });
 
 function generateCSRFToken() {
-  return 'my-state';
+  return 'not-really-necessary-for-our-use-case';
 }

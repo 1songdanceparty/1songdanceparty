@@ -18,5 +18,7 @@ jobs:
     - run: npm install && npm start
       env:
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-        SPREADSHEET_ID: 17TIodbKabfAnDeyvjkUNfUq6mGdgNz-lHSzyebIWlas
-        PLAYLIST_ID: PLSdVLeteesArC_N-BkoH50a8qbWkVW5Mb
+        TWITTER_CLIENT_ID: ${{ secrets.TWITTER_CLIENT_ID }}
+        TWITTER_CLIENT_SECRET: ${{ secrets.TWITTER_CLIENT_SECRET }}
+        TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        TWITTER_REFRESH_TOKEN: ${{ secrets.TWITTER_REFRESH_TOKEN }}
