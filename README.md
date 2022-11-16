@@ -1,4 +1,4 @@
-# onesong
+# 1songdanceparty
 
 ## v1
 
@@ -15,19 +15,17 @@ Steps for prod:
 
 ## How to refresh Twitter API access
 
-1. Pull the secrets and store them in the env. You need a client id and a client secret.
-1. Login to Twitter as the 1songdanceparty user
-1. `npm run server`
+1. Pull the secrets and store them in the env. You need a `client_id` and a `client_secret`.
+1. Login to Twitter **as the 1songdanceparty user**
+1. Start the Twitter authentication server (`npm run server`)
 1. Follow the link printed to stdout
-1. Authorize the app (As the 1songdanceparty user)
-1. Copy the access_token and the refresh token that get printed to stdout
-
-
+1. Authorize the app (**As the 1songdanceparty user**)
+1. Copy the `access_token` and the `refresh_token` that get printed to stdout
 
 ## See also
 
 - [https://developers.google.com/youtube/v3/docs/](https://developers.google.com/youtube/v3/docs/)
 - [https://console.developers.google.com/](https://console.developers.google.com/)
 - [Twitter Authentication](https://developer.twitter.com/en/docs/authentication/oauth-2-0/authorization-code)
-- [](https://twittercommunity.com/t/refresh-token-expiring-with-offline-access-scope/168899/28)
+- [Refresh token expiring (with offline.access scope)](https://twittercommunity.com/t/refresh-token-expiring-with-offline-access-scope/168899/28)
 - [Update repo secrets](https://docs.github.com/en/rest/actions/secrets#create-or-update-a-repository-secret)

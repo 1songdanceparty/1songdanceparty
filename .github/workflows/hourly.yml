@@ -15,7 +15,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - run: npm install && npm start
+    - run: npm install && npm run refresh-twitter-token
       env:
         TWITTER_ACCESS_KEY: ${{ secrets.TWITTER_ACCESS_KEY }}
         TWITTER_REFRESH_KEY: ${{ secrets.TWITTER_REFRESH_KEY }}

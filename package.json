@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "./node_modules/.bin/ts-node src",
+    "start": "./node_modules/.bin/ts-node jobs/daily",
+    "refresh-twitter-token": "./node_modules/.bin/ts-node jobs/hourly",
     "server": "ts-node src/utils/twitter-auth-server.ts",
     "tweet": "ts-node src/utils/tweet.ts",
     "test": "node test",
@@ -33,6 +34,7 @@
     "typescript": "^3.9.6"
   },
   "devDependencies": {
+    "@types/express": "^4.17.14",
     "@types/node": "^18.11.5",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",

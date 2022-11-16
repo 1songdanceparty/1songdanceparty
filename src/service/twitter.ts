@@ -14,10 +14,10 @@ export async function refreshSession() {
 
   authClient.token = {
     token_type: 'bearer',
-    access_token: env.TWITTER_ACCESS_TOKEN,
     scope: 'tweet.write users.read tweet.read offline.access',
-    refresh_token: env.TWITTER_REFRESH_TOKEN,
     expires_at: 0,
+    access_token: env.TWITTER_ACCESS_TOKEN,
+    refresh_token: env.TWITTER_REFRESH_TOKEN,
   };
 
   const { token } = await authClient.refreshAccessToken();

@@ -1,5 +1,5 @@
-import { refreshSession } from './service/twitter';
-import logger from './utils/logger';
+import { refreshSession } from '../service/twitter';
+import logger from '../utils/logger';
 
 export default async function hourly() {
   logger.log('starting job...');
