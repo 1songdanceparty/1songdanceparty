@@ -12,8 +12,7 @@ import logger from '../utils/logger';
 
     logger.log('All done! ~:D');
   } catch (err) {
-    logger.log('Oops! Ran into an error:');
-    logger.log((err as Error).message);
-    logger.log((err as Error).stack || '');
+    logger.log('Oops! something went wrong.');
+    console.error(err);
   }
 }());

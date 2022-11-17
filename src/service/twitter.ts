@@ -38,7 +38,7 @@ export async function refreshSession() {
 }
 
 export async function tweet(str: string) {
-  client.tweets.createTweet({
+  await client.tweets.createTweet({
     text: str,
   });
 }
