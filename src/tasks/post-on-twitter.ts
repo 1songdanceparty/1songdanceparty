@@ -9,11 +9,11 @@ export function formatMessage(song: SongType) {
     : '';
 
   const message = `
-    Hello, World! 
-    Here's the song of the day, requested by @${requestedBy}!
-    ${thankYou}
-    #1songdanceparty #1sdp
-    ${url}`;
+Hello, World! 
+Here's the song of the day, requested by @${requestedBy}!
+${thankYou}
+#1songdanceparty #1sdp
+${url}`;
 
   return message;
 }
