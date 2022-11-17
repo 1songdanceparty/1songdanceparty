@@ -8,6 +8,7 @@
     "refresh-twitter-token": "ts-node src/jobs/hourly",
     "server": "ts-node src/utils/twitter-auth-server.ts",
     "tweet": "ts-node src/utils/tweet.ts",
+    "test-fetch-song": "ts-node src/utils/test-fetch-song.ts",
     "test": "node test",
     "lint": "eslint . --ext .ts"
   },

@@ -1,7 +1,7 @@
-import { ISong } from '../interfaces/ISong';
+import { SongType } from '../types/song';
 import * as twitter from '../service/twitter';
 
-export default async function postOnTwitter(song: ISong) {
+export function formatMessage(song: SongType) {
   const { url, requestedBy, artistSocial } = song;
 
   const thankYou = artistSocial
@@ -15,5 +15,9 @@ export default async function postOnTwitter(song: ISong) {
     #1songdanceparty #1sdp
     ${url}`;
 
-  await twitter.tweet(message);
+  return message;
+}
+
+export default async function postOnTwitter(song: SongType) {
+  await twitter.tweet(formatMessage(song));
 }
