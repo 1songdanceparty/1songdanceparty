@@ -11,5 +11,6 @@ import logger from '../utils/logger';
   } catch (err) {
     logger.log('Oops, something went wrong.');
     console.error(err);
+    process.exit(1);
   }
 }());
