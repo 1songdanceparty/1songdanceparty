@@ -9,6 +9,7 @@
     "server": "ts-node src/utils/twitter-auth-server.ts",
     "tweet": "ts-node src/utils/tweet.ts",
     "test-fetch-song": "ts-node src/utils/test-fetch-song.ts",
+    "test-format-message": "ts-node src/utils/test-format-message.ts",
     "test": "node test",
     "lint": "eslint . --ext .ts"
   },
