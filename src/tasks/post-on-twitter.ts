@@ -2,20 +2,22 @@ import { SongType } from '../types/song';
 import * as twitter from '../service/twitter';
 
 export function formatMessage(song: SongType) {
-  const { url, requestedBy, artistSocial } = song;
-
-  const thankYou = artistSocial
-    ? `Thank you for the tune, @${artistSocial}.`
+  const thankYou = song.artistSocial
+    ? `Thank you for the tune, @${song.artistSocial}!`
     : '';
 
-  const message = `
-Hello, World! 
-Here's the song of the day, requested by @${requestedBy}!
-${thankYou}
-#1songdanceparty #1sdp
-${url}`;
+  const message = song.note
+    ? `, who says: “${song.note}”`
+    : '!';
 
-  return message;
+  const contents = [
+    `Here's our song of the day, it was requested by @${song.requestedBy}${message}`,
+    thankYou,
+    '#1songdanceparty #1sdp',
+    song.url,
+  ].filter((x) => x).join('\n\n');
+
+  return contents;
 }
 
 export default async function postOnTwitter(song: SongType) {

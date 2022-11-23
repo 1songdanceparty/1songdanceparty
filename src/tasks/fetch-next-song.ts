@@ -11,7 +11,7 @@ const URL_COL_IDX = 1;
 // const ARTIST_COL_IDX = 3;
 const ARTIST_SOCIAL_COL_IDX = 4;
 // const LENGTH_COL_IDX = 5;
-// const POST_IDX = 6;
+const NOTE_IDX = 6;
 const REQUESTED_BY_COL_IDX = 7;
 
 export default async function fetchNextSong(): Promise<SongType> {
@@ -32,6 +32,7 @@ export default async function fetchNextSong(): Promise<SongType> {
     url: todaysRow[URL_COL_IDX],
     artistSocial: todaysRow[ARTIST_SOCIAL_COL_IDX],
     requestedBy: todaysRow[REQUESTED_BY_COL_IDX],
+    note: todaysRow[NOTE_IDX],
   };
 
   const isMissingRequiredFields = Object.entries(song)

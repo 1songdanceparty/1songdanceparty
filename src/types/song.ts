@@ -5,6 +5,7 @@ export const requiredKeys = [
 
 export const optionalKeys = [
   'artistSocial',
+  'note',
 ] as const;
 
 type RequiredKeys = typeof requiredKeys[number]
